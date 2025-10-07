@@ -37,21 +37,17 @@ const Landing=()=>{
 
     return(
         <div >
-            <header className="bg-success-subtle px-4 py-3">
-                     <h3 className="text-success  py-2 pe-4">ElectroKart  <span className="float-end"><Link className="link-success" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success" to="/cart"  >C {cart.length}</Link>  <Link className="link-success" to="/wishlist" > W {list.length}</Link> </span> </h3>  
+            <header className="bg-success-subtle px-4 py-3" >
+                     <h3 className="text-success   pe-4"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
                      <input type="text"  className="form-control" placeholder="Search" onChange={(event)=>setSearch(event.target.value)} />
             </header>
-            <main className="row bg-secondary-subtle px-4 py-5">
-                 <div className="col-md-3"  >
-                     <div>
-                         <h4 className="text-primary">Filters</h4>
-                         <button className="btn btn-danger" onClick={resetFilters} >Reset</button>
+            <main className="row bg-secondary-subtle px-4 py-5"  style={{height:"2800px",marginLeft:"10px"}} >
+                 <div className="col-md-3 card bg-info-subtle  " style={{height:"500px",marginTop:"55px"}}  >
+                     <div className="px-2 py-2 " >
+                         <h4 className="text-primary">Filters   <button className="btn btn-danger float-end" onClick={resetFilters} >Reset</button></h4>         
                          <br /><br />
                          <h4>Price</h4>
-                         <input type="radio" value={10000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />$10,000 <span></span>
-                         <input type="radio" value={50000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />$50,000 <span></span>
-                         <input type="radio" value={100000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />$100,000
-                         <br /><br />
+                         0<input type="range" min={0} max={100000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />100,000
                          <h4>Rating</h4>
                          <input type="radio" value={10} name="rating"  onChange={(event)=>setRating(event.target.value)} />10 <br /> 
                          <input type="radio" value={8} name="rating"  onChange={(event)=>setRating(event.target.value)} />8 <br />
@@ -63,14 +59,14 @@ const Landing=()=>{
                          <input type="radio" value="high" name="sort" onChange={(event)=>setSort(event.target.value)} />High to Low
                      </div>
                  </div>
-                 <div className="col-md-9" >
-                     <h4 className="text-success text-center">Products</h4>
+                 <div className="col-md-9  " >
+                     <h4 className="text-success text-center">Products({products.length})</h4>
                      <div className="row">
                          {
                             products.map(pr=><div  className="col-md-6 px-3 py-3">
                                   <div className="card"    >
-                                      <img src={pr.Img} className="py-2" alt="pr" height="200px" />
-                                      <div className="py-2 px-2">
+                                      <img src={pr.Img} className="py-4 " alt="pr" height="200px" width="auto" style={{objectFit:"contain"}} />
+                                      <div className="py-4 px-4">
                                         <p>{pr.Title}</p>
                                         <h5>${pr.Price}</h5>
                                         <p><strong>Rating:</strong> {pr.Rating}</p>
