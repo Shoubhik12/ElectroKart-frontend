@@ -6,7 +6,7 @@ const WishList=()=>{
    
 
     return(
-        <div className="bg-secondary-subtle py-5" style={{height:"1400px"}}>
+        <div className="bg-secondary-subtle py-5" style={{height:"100%"}}>
                <div className="text-center">
                   <h1 className="display-4">My Wishlist</h1>
                   <div className="row px-4">

@@ -41,19 +41,17 @@ const Landing=()=>{
                      <h3 className="text-success   pe-4"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
                      <input type="text"  className="form-control" placeholder="Search" onChange={(event)=>setSearch(event.target.value)} />
             </header>
-            <main className="row bg-secondary-subtle px-4 mx-0 py-5"  style={{height:"3000px",marginLeft:"10px",width:"1520px"}} >
+            <main className="row bg-secondary-subtle px-4 mx-0 py-5"  style={{height:"100%",marginLeft:"10px",width:"1520px"}} >
                  <div className="col-md-3 card bg-info-subtle  " style={{height:"500px",marginTop:"55px"}}  >
                      <div className="px-2 py-2 " >
                          <h4 className="text-primary">Filters   <button className="btn btn-danger float-end" onClick={resetFilters} >Reset</button></h4>         
                          <br /><br />
                          <h4>Price</h4>
-                         0<input type="range" min={0} max={100000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />100,000
+                         0<input type="range" min={0} max={100000} name="price" onChange={(event)=>setPrice(Number(event.target.value))} />100,000 <br /><br />
                          <h4>Rating</h4>
-                         <input type="radio" value={10} name="rating"  onChange={(event)=>setRating(event.target.value)} />10 <br /> 
-                         <input type="radio" value={8} name="rating"  onChange={(event)=>setRating(event.target.value)} />8 <br />
-                         <input type="radio" value={4} name="rating"  onChange={(event)=>setRating(event.target.value)} />4 <br />
-                         <input type="radio" value={1} name="rating"  onChange={(event)=>setRating(event.target.value)} />1
-                         <br /><br />
+                         0<input type="range" min={0} max={10} name="rating"  onChange={(event)=>setRating(event.target.value)} />10 <br /><br />
+                         <h4>Category</h4>
+                         <p>{product.cat}</p>
                          <h4>Sort By</h4>
                          <input type="radio" value="low" name="sort" onChange={(event)=>setSort(event.target.value)} />Low to High <br />
                          <input type="radio" value="high" name="sort" onChange={(event)=>setSort(event.target.value)} />High to Low

@@ -30,7 +30,7 @@ const Cart=()=>{
 
 
     return(
-        <div className="bg-secondary-subtle py-5" style={{height:"1400px"}}>
+        <div className="bg-secondary-subtle  py-5" style={{height:"100%"}}>
               <h1 className="display-3 text-center">My Cart</h1>
               <div className="row container px-5 ">
                    <div className="col-md-6 px-2 py-2">
