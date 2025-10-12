@@ -1,4 +1,4 @@
-import { useParams  } from "react-router-dom"
+import { useParams,Link  } from "react-router-dom"
 import useFetch from "../useFetch"
 import { useUtls } from "./useUtls";
 
@@ -13,7 +13,10 @@ const Details=()=>{
     console.log(cart)
 
     return(
-        <div className="bg-secondary-subtle py-5">
+        <div className="bg-secondary-subtle ">
+             <header className="bg-success-subtle px-4 py-3" >
+                     <h3 className="text-success   pe-4"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
+             </header>
              {loading && <p>Loading... </p>}
              { !loading &&  data &&  <div className="card mx-4 py-5">
                   <div className="row">

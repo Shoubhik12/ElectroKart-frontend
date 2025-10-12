@@ -9,6 +9,8 @@ import { UtlsProvider } from './components/useUtls.jsx'
 import WishList from './components/Wishlist.jsx'
 import Cart from './components/Cart.jsx'
 import Profile from './components/Profile.jsx'
+import Placed from './components/Placed.jsx'
+import OrderHistory from './components/OrderHistory.jsx'
 const router = createBrowserRouter([{
   path:"/",
   element:<App />
@@ -27,6 +29,12 @@ const router = createBrowserRouter([{
 },{
   path:"/profile",
   element:<Profile/>
+},{
+  path:"/placed",
+  element:<Placed/>
+},{
+  path:"/history",
+  element:<OrderHistory/>
 }])
 
 createRoot(document.getElementById('root')).render(

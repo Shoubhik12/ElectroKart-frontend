@@ -5,11 +5,14 @@ import { useUtls } from "./useUtls";
 
 const Landing=()=>{
     const product = useParams()
-    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics/cat/${product.cat}`)
+    const [category,setCategory] = useState(product.cat)
+    const categories = ["Smartphone","Mobile","Electronics","Accessories","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Storage","Memory","Monitor","Display","Gaming","Home Entertainment"]
+    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics/cat/${category}`)
     const [search,setSearch] = useState("")
     const [rating,setRating] = useState(1)
     const [price,setPrice] = useState(0)
     const [sort,setSort] = useState("")
+    
     let products=[]
 
     const { cart, list, cartHandler, listHandler } = useUtls();
@@ -33,6 +36,7 @@ const Landing=()=>{
     }
 
 
+
  
 
     return(
@@ -42,7 +46,7 @@ const Landing=()=>{
                      <input type="text"  className="form-control" placeholder="Search" onChange={(event)=>setSearch(event.target.value)} />
             </header>
             <main className="row bg-secondary-subtle px-4 mx-0 py-5"  style={{height:"100%",marginLeft:"10px",width:"1520px"}} >
-                 <div className="col-md-3 card bg-info-subtle  " style={{height:"500px",marginTop:"55px"}}  >
+                 <div className="col-md-3 card bg-info-subtle  " style={{height:"1000px",marginTop:"55px"}}  >
                      <div className="px-2 py-2 " >
                          <h4 className="text-primary">Filters   <button className="btn btn-danger float-end" onClick={resetFilters} >Reset</button></h4>         
                          <br /><br />
@@ -51,7 +55,7 @@ const Landing=()=>{
                          <h4>Rating</h4>
                          0<input type="range" min={0} max={10} name="rating"  onChange={(event)=>setRating(event.target.value)} />10 <br /><br />
                          <h4>Category</h4>
-                         <p>{product.cat}</p>
+                         <ul>{categories.map(cat=><li>{cat} <input type="checkbox" id="category" value={cat} checked={category==cat} onClick={(event)=>setCategory(event.target.value)}   /></li>)}</ul>
                          <h4>Sort By</h4>
                          <input type="radio" value="low" name="sort" onChange={(event)=>setSort(event.target.value)} />Low to High <br />
                          <input type="radio" value="high" name="sort" onChange={(event)=>setSort(event.target.value)} />High to Low
