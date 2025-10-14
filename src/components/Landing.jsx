@@ -5,9 +5,17 @@ import { useUtls } from "./useUtls";
 
 const Landing=()=>{
     const product = useParams()
-    const [category,setCategory] = useState(product.cat)
+    const [category,setCategory] = useState([])
+    useEffect(()=>{
+        if(product.cat){
+            setCategory([product.cat])
+        }
+        else{
+            setCategory([])
+        }
+    },[product.cat])
     const categories = ["Smartphone","Mobile","Electronics","Accessories","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Storage","Memory","Monitor","Display","Gaming","Home Entertainment"]
-    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics/cat/${category}`)
+    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics/cat/${product.cat}`)
     const [search,setSearch] = useState("")
     const [rating,setRating] = useState(1)
     const [price,setPrice] = useState(0)
@@ -24,8 +32,12 @@ const Landing=()=>{
         window.location.reload()
     }
 
-    if(!loading ){
-         products =  data.filter(pr=>search==""?true:pr.Title.includes(search)).filter(pr=>pr.Price>=price).filter(pr=>pr.Rating>=rating)
+    const handleCategoryChange=(cat)=>{
+         setCategory((prev)=>prev.includes(cat)? prev.filter(c=>c!=cat):[...prev,cat])
+    }
+
+    if(!loading && Array.isArray(data) ){
+         products =  data.filter(pr=>search==""?true:pr.Title.includes(search)).filter(pr=>pr.Price>=price).filter(pr=>pr.Rating>=rating).filter(pr=>category.length>0?pr.Categories.join(",").includes(category.join(",")):true)
          if(sort=="low"){
              products.sort((a,b)=>a.Price-b.Price)
          }
@@ -55,7 +67,7 @@ const Landing=()=>{
                          <h4>Rating</h4>
                          0<input type="range" min={0} max={10} name="rating"  onChange={(event)=>setRating(event.target.value)} />10 <br /><br />
                          <h4>Category</h4>
-                         <ul>{categories.map(cat=><li>{cat} <input type="checkbox" id="category" value={cat} checked={category==cat} onClick={(event)=>setCategory(event.target.value)}   /></li>)}</ul>
+                         <ul>{categories.map(cat=><li>{cat} <input type="checkbox"  value={cat} checked={category.includes(cat)} onChange={()=>handleCategoryChange(cat)}   /></li>)}</ul>
                          <h4>Sort By</h4>
                          <input type="radio" value="low" name="sort" onChange={(event)=>setSort(event.target.value)} />Low to High <br />
                          <input type="radio" value="high" name="sort" onChange={(event)=>setSort(event.target.value)} />High to Low
