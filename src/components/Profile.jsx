@@ -9,16 +9,18 @@ const Profile=()=>{
     const [address,setAddress] = useState(addresses[0]) 
     const { cart, list, cartHandler, listHandler } = useUtls();
     return(
-        <div className="bg-secondary-subtle " style={{height:"1000px"}}>
-            <header className="bg-success-subtle px-4 py-3" >
-                     <h3 className="text-success   pe-4"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
+        <div className="bg-secondary-subtle min-vh-100 "   >
+             <header className="bg-success-subtle px-4 py-3" >
+                     <h3 className="text-success pe-4 d-flex flex-wrap justify-content-between align-items-center"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
                      
-            </header>
-            <div className="px-4 py-4 ">
-                <h1 className="display-3 text-center">Profile</h1>
-               <ul className="list-group my-4">
+                </header>
+            <div className="container py-5">
+                <h1 className="display-3 text-center mb-4">Profile</h1>
+                <div className="row justify-content-center g-4">
+                     <div className="col-12 col-md-8 col-lg-6">
+                     <ul className="list-group rounded-3 ">
                    <li className="list-group-item">Name: {profile.name}</li>
-                   <li className="list-group-item">Email: {profile.email}</li>
+                   <li className="list-group-item text-break">Email: {profile.email}</li>
                    <li className="list-group-item">Phone: {profile.phone}</li>
                    <li className="list-group-item">
                       <select className="form-select"  id="address" onChange={(event)=>setAddress(event.target.value)} >
@@ -35,6 +37,8 @@ const Profile=()=>{
                       <Link className="d-grid gap-2 col-6 mx-auto my-4 btn btn-danger" to="/history"  >History</Link>
                    </li>
                </ul>
+                     </div>
+                </div>
             </div> 
         </div>
     )
