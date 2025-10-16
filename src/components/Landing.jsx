@@ -14,8 +14,8 @@ const Landing=()=>{
             setCategory([])
         }
     },[product.cat])
-    const categories = ["Smartphone","Mobile","Electronics","Accessories","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Storage","Memory","Monitor","Display","Gaming","Home Entertainment"]
-    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics/cat/${product.cat}`)
+    const categories = ["Smartphone","Mobile","Electronics","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Monitor","Gaming","Home Entertainment"]
+    const {data,loading,error} = useFetch(`https://electro-kart-backend.vercel.app/electronics`)
     const [search,setSearch] = useState("")
     const [rating,setRating] = useState(1)
     const [price,setPrice] = useState(0)
@@ -37,7 +37,7 @@ const Landing=()=>{
     }
 
     if(!loading && Array.isArray(data) ){
-         products =  data.filter(pr=>search==""?true:pr.Title.includes(search)).filter(pr=>pr.Price>=price).filter(pr=>pr.Rating>=rating).filter(pr=>category.length>0?pr.Categories.join(",").includes(category.join(",")):true)
+         products =  data.filter(pr=>search==""?true:pr.Title.includes(search)).filter(pr=>pr.Price>=price).filter(pr=>pr.Rating>=rating).filter(pr=>category.length>0?pr.Categories.some(cat=>category.includes(cat)):true)
          if(sort=="low"){
              products.sort((a,b)=>a.Price-b.Price)
          }

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 function App() {
   
-  const categories = ["Smartphone","Mobile","Electronics","Accessories","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Storage","Memory","Monitor","Display","Gaming","Home Entertainment"]
+  const categories = ["Smartphone","Mobile","Electronics","Laptop","Computers","Audio","Headphones","Wearables","Smartwatch","Tablet","Entertainment","Camera","Photography","Monitor","Gaming","Home Entertainment"]
 
   return (
     <>
