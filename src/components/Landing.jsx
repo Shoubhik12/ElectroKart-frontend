@@ -53,9 +53,9 @@ const Landing=()=>{
 
     return(
         <div >
-            <header className="bg-success-subtle px-4 py-3" >
-                     <h3 className="text-success   pe-4"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a>  <span className="float-end"><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link> </span> </h3>  
-                     <input type="text"  className="form-control" placeholder="Search" onChange={(event)=>setSearch(event.target.value)} />
+            <header className="bg-success-subtle  px-4 py-3" >
+                     <h3 className="text-success input-group   pe-4"><div className="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-2"><a className="link-offset-2 link-success link-underline link-underline-opacity-0" href="/">ElectroKart</a><input className="form-control" placeholder="Search" onChange={(event)=>setSearch(event.target.value)}   style={{maxWidth:"500px"}}/> <div  className="" ><Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/profile" ><img className="px-2 py-2" src="https://img.icons8.com/?size=30&id=7820&format=png" alt="prof" /> </Link>   <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/cart"  ><img src="https://img.icons8.com/?size=30&id=ii6Lr4KivOiE&format=png&color=737373" alt="cart" /> {cart.length}</Link>  <Link className="link-success link-offset-2 link-underline link-underline-opacity-0" to="/wishlist" > <img  src="https://img.icons8.com/?size=30&id=7697&format=png&color=737373" alt="wlist" /> {list.length}</Link></div> </div>  </h3>  
+                     
             </header>
             <main className="container-fluid  row bg-secondary-subtle px-4 mx-0 py-5"   >
                  <div className="col-12  col-md-3 card bg-info-subtle  "  style={{height:"1000px",marginTop:"55px"}} >
