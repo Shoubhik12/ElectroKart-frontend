@@ -1,9 +1,20 @@
+
 import { useUtls } from "./useUtls"
 import { Link } from "react-router-dom"
 
 const WishList=()=>{
     const {cart,list,cartHandler,listHandler} = useUtls()
-
+    const handleCart=(lt)=>{
+           const exist = cart.find(ct=>ct==lt)
+           if(exist){
+              JSON.stringify(lt)
+              console.log(lt)
+              localStorage.setItem("lt",lt)
+           }
+           else{
+              cartHandler(lt)
+           }
+    }
    
 
     return(
@@ -22,7 +33,7 @@ const WishList=()=>{
                                    <p className="fw-medium">{lt.Title}</p>
                                    <h4>${lt.Price}</h4>
                                    <button className="btn btn-danger mx-3 my-2" onClick={()=>listHandler(lt)} >Remove from the Wishlist </button>
-                                   <button className="btn btn-secondary mx-3 mb-3" onClick={()=>cartHandler(lt)}>Add to the Cart</button>
+                                   <button className="btn btn-secondary mx-3 mb-3" onClick={()=>handleCart(lt)}>Add to the Cart</button>
                               </div>
                           </div>)
                       }

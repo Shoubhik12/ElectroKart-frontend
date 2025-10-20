@@ -1,5 +1,7 @@
 import { useContext } from "react"
 import { useState,useEffect, createContext } from "react"
+import {  toast } from 'react-toastify';
+
 
 const productContext = createContext()
 
@@ -28,9 +30,11 @@ export const UtlsProvider=({children})=>{
     const cartHandler=(value)=>{
         const exist = cart.find((pd)=>pd.Title==value.Title)
         if(!exist){
+             toast.success("Item added to the cart.")
              addCart([...cart,value])
         }
         else{
+            toast.dark("Item removed from the cart.")
             addCart(cart.filter(prod=>prod.Title!=value.Title))
         }
     }
@@ -38,9 +42,11 @@ export const UtlsProvider=({children})=>{
     const listHandler=(value)=>{
         const exist = list.find(wl=>wl.Title==value.Title)
         if(!exist){
+            toast.success("Item added to the wishlist.")
             addList([...list,value])
         }
         else{
+            toast.info("Item removed from the wishlist.")
             addList(list.filter(wish=>wish.Title!=value.Title))
         }
     }

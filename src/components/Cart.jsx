@@ -1,20 +1,23 @@
 import { useState } from "react"
 import { useUtls } from "./useUtls"
 import { Link } from "react-router-dom"
-
+import {  toast } from 'react-toastify';
 
 const Cart=()=>{
 
     const {cart,list,cartHandler,listHandler} = useUtls()
+  
     const quantities = cart.map((ct)=>({id:ct._id,quant:1}))
     console.log(quantities)
     const [quantity,setQuantity] = useState(quantities)
 
     const addQuantity=(ct)=>{
+        toast.success("Quantity Increased.")
         setQuantity((prev)=>prev.map((p)=>p.id==ct._id?{...p,quant:p.quant+1}:p))
     }
 
      const decreaseQuantity=(ct)=>{
+        toast.info("Quantity Decreased.")
         setQuantity((prev)=>prev.map((p)=>p.id==ct._id && p.quant>1?{...p,quant:p.quant-1}:p))
     }
 
