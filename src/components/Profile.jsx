@@ -6,8 +6,23 @@ const Profile=()=>{
 
     const addresses=["Flat No. 204, Green Valley Apartments Lakeview Road, Andheri WestMumbai, Maharashtra – 400058","12, Park StreetNear City Centre Mall Kolkata, West Bengal – 700016","B-45, Sunrise Residency Sector 62, Noida Uttar Pradesh – 201301"]
     const profile = {name:"Shoubhik Ghosh",email:"shoubhikghosh360@gmail.com",phone:8910584697}
-    const [address,setAddress] = useState(addresses[0]) 
+    const [add,setAdd] = useState(false)
+    const [val,setVal] = useState("")
+    const [addr,setAddr] = useState(["Flat No. 204, Green Valley Apartments Lakeview Road, Andheri WestMumbai, Maharashtra – 400058","12, Park StreetNear City Centre Mall Kolkata, West Bengal – 700016","B-45, Sunrise Residency Sector 62, Noida Uttar Pradesh – 201301"])
+    const [address,setAddress] = useState(addr[0]) 
+    const [del,setDel] = useState(false)
     const { cart, list, cartHandler, listHandler } = useUtls();
+
+    const Addresshandler=(value)=>{
+        const exist =addr.find(ad=>ad==value)
+        if(exist){
+             setAddr(addr.filter(ad=>ad!=value))
+        }
+        else{
+            setAddr([...addr,value])
+        }
+    }
+
     return(
         <div className="bg-secondary-subtle min-vh-100 "   >
              <header className="bg-success-subtle px-4 py-3" >
@@ -23,14 +38,29 @@ const Profile=()=>{
                    <li className="list-group-item text-break">Email: {profile.email}</li>
                    <li className="list-group-item">Phone: {profile.phone}</li>
                    <li className="list-group-item">
-                      <select className="form-select"  id="address" onChange={(event)=>setAddress(event.target.value)} >
+                       <div className="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-2">
+                          <select className="form-select"  id="address" onChange={(event)=>setAddress(event.target.value)} style={{width:"80%"}} >
                            {
-                             addresses.map(ad=><option>
-                                 {ad}
+                             addr.map(ad=><option>
+                                 {ad} 
                              </option>)
+                             
                            }
-                      </select>
+                           
+                        </select>
+                        <button className="btn btn-warning" onClick={()=>setAdd(!add)}>Add </button>
+                        <button className="btn btn-danger" onClick={()=>setDel(!del)}>Delete Address</button>
+                       </div>
+                    {
+                        del &&  <ul>
+                            {addr.map(ad=><li onClick={()=>Addresshandler(ad)}>{ad}</li>)}
+                        </ul>
+                    }
                    </li>
+                   {add &&  <li className="list-group-item">
+                        <input type="text" id="addr" className="form-control" onChange={(event)=>setVal(event.target.value)}/>
+                        <button className="btn btn-primary my-2"  onClick={()=>Addresshandler(val)}>Enter a address</button>
+                    </li>}
                    <li className="list-group-item">Address: {address}</li>
                    <li className="list-group-item">
                       <Link className="d-grid gap-2 col-6 mx-auto btn btn-warning " to="/placed" >Check Out</Link>
