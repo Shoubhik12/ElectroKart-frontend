@@ -85,7 +85,7 @@ const Landing=()=>{
                                         <h5 className="px-4">${pr.Price}</h5>
                                         <p className="px-4"><strong>Rating:</strong> {pr.Rating}</p>
                                          <div className="d-flex flex-wrap gap-2  justify-content-center mt-3" >
-                                             <button className="btn btn-warning flex-grow-1 flex-md-grow-0 "  style={{ minWidth: "120px" }}   onClick={()=>cartHandler(pr)} >Add to Cart</button> <span></span>
+                                             <button className="btn btn-warning flex-grow-1 flex-md-grow-0 "  style={{ minWidth: "120px" }}   onClick={()=>cartHandler(pr)} >{cart.find(ct=>ct.Title==pr.Title)?"Remove from the Cart":"Add to Cart"}</button> <span></span>
                                              <button className="btn btn-primary flex-grow-1 flex-md-grow-0 "  style={{ minWidth: "120px" }} onClick={()=>listHandler(pr)} >{list.find(lt=>lt.Title==pr.Title)?"Remove from the Wishlist":"Save to WishList"}</button> <br />
                                               <Link to={`/details/${pr._id}`} className="btn btn-success flex-grow-1 flex-md-grow-0"  style={{ minWidth: "120px" }}   >Details</Link>
                                          </div>

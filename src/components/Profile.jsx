@@ -10,7 +10,7 @@ const Profile=()=>{
     const [val,setVal] = useState("")
     const [addr,setAddr] = useState(["Flat No. 204, Green Valley Apartments Lakeview Road, Andheri WestMumbai, Maharashtra – 400058","12, Park StreetNear City Centre Mall Kolkata, West Bengal – 700016","B-45, Sunrise Residency Sector 62, Noida Uttar Pradesh – 201301"])
     const [address,setAddress] = useState(addr[0]) 
-    const [del,setDel] = useState(false)
+    const [show,setShow] = useState(false)
     const { cart, list, cartHandler, listHandler } = useUtls();
 
     const Addresshandler=(value)=>{
@@ -38,25 +38,18 @@ const Profile=()=>{
                    <li className="list-group-item text-break">Email: {profile.email}</li>
                    <li className="list-group-item">Phone: {profile.phone}</li>
                    <li className="list-group-item">
-                       <div className="container-fluid d-flex flex-wrap align-items-center justify-content-between gap-2">
-                          <select className="form-select"  id="address" onChange={(event)=>setAddress(event.target.value)} style={{width:"80%"}} >
-                           {
-                             addr.map(ad=><option>
-                                 {ad} 
-                             </option>)
-                             
-                           }
-                           
-                        </select>
-                        <button className="btn btn-warning" onClick={()=>setAdd(!add)}>Add </button>
-                        <button className="btn btn-danger" onClick={()=>setDel(!del)}>Delete Address</button>
+                       <div >
+                        <button className="btn btn-info" onClick={()=>setShow(!show)} >Show Addresses</button>  
+                        <button className="btn btn-warning float-end px-5" onClick={()=>setAdd(!add)}>Add </button> 
                        </div>
-                    {
-                        del &&  <ul>
-                            {addr.map(ad=><li onClick={()=>Addresshandler(ad)}>{ad}</li>)}
-                        </ul>
-                    }
                    </li>
+                   {show && <li className="list-group-item">
+                       <div className="card">
+                            {
+                                addr.map(ad=><div className="card-header">{ad}  <div><button className="btn btn-success" onClick={()=>setAddress(ad)} >Select</button>   <button className="btn btn-danger "  onClick={()=>Addresshandler(ad)}>Delete</button></div> </div>)
+                            }
+                       </div>
+                    </li>}
                    {add &&  <li className="list-group-item">
                         <input type="text" id="addr" className="form-control" onChange={(event)=>setVal(event.target.value)}/>
                         <button className="btn btn-primary my-2"  onClick={()=>Addresshandler(val)}>Enter a address</button>

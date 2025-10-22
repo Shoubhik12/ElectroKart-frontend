@@ -45,7 +45,7 @@ const Cart=()=>{
                        {
                          cart.map((ct)=><div className="card shadow-sm py-4">
                               <img src={ct.Img} className="py-3 my-2" alt="Img" style={{objectFit:"contain",maxHeight:"180px"}} />
-                              <div className="container px-2">
+                              <div className="container px-4">
                                   <p className="fw-medium">{ct.Title}</p>
                                   <h4>$ {ct.Price}</h4>
                                   <p className="fw-normal" >Quantity:  {quantity.find(qt=>qt.id==ct._id).quant} <button className="btn btn-outline-success" onClick={()=>decreaseQuantity(ct)} >-</button> <button className="btn btn-outline-success" onClick={()=>addQuantity(ct)} >+</button> </p>
