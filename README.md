@@ -1,12 +1,106 @@
-# React + Vite
+# Ecommerce website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An full-stack website where you can add , buy ,search and filter electrical products. You can also add ,edit or pick the addresses . Built with React JS,Express JS,Node JS,MONGODB.
+---
 
-Currently, two official plugins are available:
+## Demo Link
+ [Demo](https://github.com/Shoubhik12/ElectroKart-frontend) 
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quick Start
 
-## Expanding the ESLint configuration
+```
+    git clone https://github.com/Shoubhik12/ElectroKart-frontend.git
+    cd <ElectroKart-frontend>
+    npm install
+    npm run dev      
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Technologies
+
+- React JS
+- React Router
+- Node JS
+- Express JS
+- MONGODB
+---
+
+## Demo Video
+
+  Watch a walthrough video explaining all the major features of the website: [VIDEO](https://drive.google.com/file/d/1a1Wiz5dh62eqLGR6T77GErS0Yh3K2FSv/view?usp=sharing)
+---
+
+## Features
+
+- Homepage
+
+  Displays categories 
+
+- Product Listing Page
+  Shows all products along with a filter and sort section 
+
+  Filtering by price, category, and rating works as expected
+
+  Sorting products is functional
+
+  Products can be searched using the search bar 
+
+  Add to Cart / Add to Wishlist actions work correctly
+
+  Remove from Cart / Remove from Wishlist works as expected 
+
+  Proper messages/notifications are displayed on the UI (via toast) 
+
+- Product Detail Page
+
+  Displays full details of a selected product 
+
+  Includes Add to Cart, and Add to Wishlist options 
+
+  Select size and quantity  
+
+- Wishlist
+  
+  Products can be added to the wishlist from the product listing page 
+
+  Wishlist page displays saved items 
+
+  Products can be removed from the wishlist 
+
+  Products can be added to cart from wishlist 
+
+- Cart Page
+
+  Displays all products added to the cart 
+
+  Includes options to remove items or move them to/from the wishlist 
+
+  Quantity can be increased/decreased, and the price details update accordingly 
+
+  Shows a price detail/summary card 
+
+- Checkout & Orders
+  
+  Checkout page allows selecting or managing addresses 
+
+  An address form is available to add a new address 
+  
+  Order summary is displayed before placing the order 
+  
+  Placing an order clears the cart and adds the order to My Orders 
+  
+  Order summary displays successfully placed orders 
+
+- Profile page
+  
+  Saved addresses are displayed on a dedicated profile page 
+  
+  Addresses can be added, edited, and deleted successfully 
+
+- Persistence
+  Cart, Wishlist, and Address data persist after page refresh 
+---
+
+## Contact  
+  For any queries contact me on  shoubhikghosh360@gmail.com
