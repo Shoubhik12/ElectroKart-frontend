@@ -28,78 +28,100 @@ An full-stack website where you can add , buy ,search and filter electrical prod
 
 ## Demo Video
 
-  Watch a walthrough video explaining all the major features of the website: [VIDEO](https://drive.google.com/file/d/1a1Wiz5dh62eqLGR6T77GErS0Yh3K2FSv/view?usp=sharing)
+  Watch a walkthrough video explaining all the major features of the website: [VIDEO](https://drive.google.com/file/d/1a1Wiz5dh62eqLGR6T77GErS0Yh3K2FSv/view?usp=sharing)
 ---
 
+## Screenshots
+
+   ### Home page
+   ![homepage](image.png)
+
+   ### Product Details Page
+   ![details](image-1.png)
+
+---
 ## Features
 
-- Homepage
+  Home page
 
-  Displays categories 
+  - Displays categories 
 
-- Product Listing Page
-  Shows all products along with a filter and sort section 
+  Product Listing Page
 
-  Filtering by price, category, and rating works as expected
+  - Shows all products along with a filter and sort section 
 
-  Sorting products is functional
+  - Filtering by price, category, and rating works as expected
 
-  Products can be searched using the search bar 
+  - Sorting products is functional
 
-  Add to Cart / Add to Wishlist actions work correctly
+  - Products can be searched using the search bar 
 
-  Remove from Cart / Remove from Wishlist works as expected 
+  - Add to Cart / Add to Wishlist  works.
 
-  Proper messages/notifications are displayed on the UI (via toast) 
+  - Remove from Cart / Remove from Wishlist works as expected 
 
-- Product Detail Page
+  - Proper messages/notifications are displayed on the UI (via toast) 
 
-  Displays full details of a selected product 
+  Product Detail Page
 
-  Includes Add to Cart, and Add to Wishlist options 
+  - Displays full details of a selected product 
 
-  Select size and quantity  
+  - Includes Add to Cart, and Add to Wishlist options 
 
-- Wishlist
+  - Select size and quantity  
+
+  Wish List Page
   
-  Products can be added to the wishlist from the product listing page 
+  - Products can be added to the wishlist from the product listing page 
 
-  Wishlist page displays saved items 
+  - Wishlist page displays saved items 
 
-  Products can be removed from the wishlist 
+  - Products can be removed from the wishlist 
 
-  Products can be added to cart from wishlist 
+  - Products can be added to cart from wishlist 
 
-- Cart Page
+  Cart Page
 
-  Displays all products added to the cart 
+  - Displays all products added to the cart 
 
-  Includes options to remove items or move them to/from the wishlist 
+  - Includes options to remove items or move them to/from the wishlist 
 
-  Quantity can be increased/decreased, and the price details update accordingly 
+  - Quantity can be increased/decreased, and the price details update accordingly 
 
-  Shows a price detail/summary card 
+  - Shows a price detail/summary card 
 
-- Checkout & Orders
+  Checkout & Orders
   
-  Checkout page allows selecting or managing addresses 
+  - Checkout page allows selecting or managing addresses 
 
-  An address form is available to add a new address 
+  - An address form is available to add a new address 
   
-  Order summary is displayed before placing the order 
+  - Order summary is displayed before placing the order 
   
-  Placing an order clears the cart and adds the order to My Orders 
+  - Placing an order clears the cart and adds the order to My Orders 
   
-  Order summary displays successfully placed orders 
+  - Order summary displays successfully placed orders 
 
-- Profile page
+  Profile page
   
-  Saved addresses are displayed on a dedicated profile page 
+  - Saved addresses are displayed on a dedicated profile page 
   
-  Addresses can be added, edited, and deleted successfully 
+  - Addresses can be added, edited, and deleted successfully 
 
-- Persistence
-  Cart, Wishlist, and Address data persist after page refresh 
+  Persistence
+  - Cart, Wishlist, and Address data persist after page refresh 
+---
+
+## Environment Setup And Backend(/server/.env)
+
+### Server
+    PORT=3000
+    NODE_ENV=development
+
+### Database
+   MONGODB = mongodb+srv://NeoGStudent:shoubhik@neog.h3ciunv.mongodb.net/?retryWrites=true&w=majority&appName=NeoG
+
+
 ---
 
 ## Contact  
